@@ -80,9 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE' : 'django.db.backends.postgresql_psycopg2',
         'NAME' : 'productos',
-        'USER' : 'root',
-        'PASSWORD' : 'root',
-        'HOST' : 'localhost',
+        'USER' : 'fl0user',
+        'PASSWORD' : 'otNCwkYH3J5d',
+        'HOST' : 'ep-cool-rice-99777855.ap-southeast-1.aws.neon.fl0.io',
         'PORT' : '5432', 
     }
 }
