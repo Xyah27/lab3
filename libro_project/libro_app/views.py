@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from .models import Arepa
+from .models import Arepa , Libro
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+
+
 
 class ArepaListado(ListView):
     model = Arepa # Llamamos a la clase 'Arepa' que se encuentra en nuestro archivo 'models.py' 
@@ -42,3 +44,36 @@ class ArepaEliminar(SuccessMessageMixin, DeleteView):
         success_message = 'Arepa Eliminada Correctamente !' # Mostramos este Mensaje luego de Editar una Arepa 
         messages.success (self.request, (success_message))       
         return reverse('leer') # Redireccionamos a la vista principal 'leer'
+    
+    #VIEWS DEL 2DO MODELO
+    
+class LibroListado(ListView):
+    model = Libro
+
+class LibroCrear(SuccessMessageMixin, CreateView):
+    model = Libro
+    fields = "__all__"
+    success_message = 'Libro Creado Correctamente!'
+
+    def get_success_url(self):
+        return reverse('lista_libros')  # Reemplaza 'lista_libros' con la vista principal de la lista de libros
+
+class LibroDetalle(DetailView):
+    model = Libro
+
+class LibroActualizar(SuccessMessageMixin, UpdateView):
+    model = Libro
+    fields = "__all__"
+    success_message = 'Libro Actualizado Correctamente!'
+
+    def get_success_url(self):
+        return reverse('lista_libros')  # Reemplaza 'lista_libros' con la vista principal de la lista de libros
+
+class LibroEliminar(SuccessMessageMixin, DeleteView):
+    model = Libro
+    fields = "__all__"
+
+    def get_success_url(self):
+        success_message = 'Libro Eliminado Correctamente!'
+        messages.success(self.request, success_message)
+        return reverse('lista_libros')

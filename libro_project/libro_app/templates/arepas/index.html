@@ -11,7 +11,7 @@
         {# Archivos #}
         {% load static %} <!-- STATIC_URL -->
       
-    </head>
+  </head>
       
     <body>
         
@@ -26,6 +26,7 @@
               <th>Precio</th>
               <th>Stock</th>
               <th>Imagen</th>
+              <th>ID</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -37,6 +38,7 @@
               <td>{{ arepas.nombre }}</td>
               <td>{{ arepas.precio }}</td>
               <td>{{ arepas.stock }}</td>
+              <td>{{ arepas.id }}</td>
               <td><img src="{% static 'uploads/'%}{{arepas.img}}" alt="{{arepas.nombre}}" class="img-fluid" width="7%"></td>
               <td>
          
@@ -59,6 +61,3 @@
          
           </tbody>
         </table>
-        {# JS y jQuery Bootstrap #}
-        {% bootstrap_javascript jquery='full' %} 
-    </body>

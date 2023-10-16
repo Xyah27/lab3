@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path 
 from libro_app.views import ArepaListado, ArepaDetalle, ArepaCrear, ArepaActualizar, ArepaEliminar
+from libro_app.views import LibroListado, LibroDetalle, LibroCrear, LibroActualizar, LibroEliminar
 
 
 urlpatterns = [
@@ -34,7 +35,23 @@ urlpatterns = [
 
     # La ruta 'actualizar' en donde mostraremos un formulario para actualizar un arepas o registro de la Base de Datos 
     path('arepas/editar/<int:pk>', ArepaActualizar.as_view(template_name = "arepas/actualizar.html"), name='actualizar'), 
-
+    
     # La ruta 'eliminar' que usaremos para eliminar un arepas o registro de la Base de Datos 
     path('arepas/eliminar/<int:pk>', ArepaEliminar.as_view(), name='eliminar'),   
+    
+    #2DO RUTAS LIBROS
+    # La ruta 'leer' en donde listamos todos los registros o arepas de la Base de Datos
+    path('libros/', LibroListado.as_view(template_name = "arepas/index.html"), name='leer'),
+
+    # La ruta 'detalles' en donde mostraremos una página con los detalles de un arepas o registro 
+    path('libros/detalle/<int:pk>', LibroDetalle.as_view(template_name = "arepas/detalles.html"), name='detalles'),
+
+    # La ruta 'crear' en donde mostraremos un formulario para crear un nuevo arepas o registro  
+    path('libros/crear', LibroCrear.as_view(template_name = "arepas/crear.html"), name='crear'),
+
+    # La ruta 'actualizar' en donde mostraremos un formulario para actualizar un arepas o registro de la Base de Datos 
+    path('libros/editar/<int:pk>', LibroActualizar.as_view(template_name = "arepas/actualizar.html"), name='actualizar'), 
+
+    # La ruta 'eliminar' que usaremos para eliminar un arepas o registro de la Base de Datos 
+    path('libros/eliminar/<int:pk>', LibroEliminar.as_view(), name='eliminar'),   
 ]

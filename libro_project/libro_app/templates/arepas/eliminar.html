@@ -48,6 +48,7 @@
                     <!-- Creamos 3 botones que son ver, Editar y Eliminar, nos sirven para gestionar nuestros registros o postres -->
                     <a href="detalle/{{arepas.id}}" title="Ver" type="button" class="btn btn-success">Ver </a>
                     <a href="editar/{{arepas.id}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+                        
                     <button class="btn btn-danger" onclick="return eliminar();" type="submit">
                       Eliminar
                     </button>
@@ -59,6 +60,21 @@
          
           </tbody>
         </table>
-        {# JS y jQuery Bootstrap #}
-        {% bootstrap_javascript jquery='full' %} 
+        
+         <!--2do MODELO-->
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th width="35%">Titulo</th>
+              <th>Autor</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Imagen</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+          
+          <!-- Recorremos los objetos o registros que tenemos en nuestra tabla 'postres' y los listamos -->
+
     </body>
